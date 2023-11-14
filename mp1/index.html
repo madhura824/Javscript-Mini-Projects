@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>This is a simple project that creates a rectangle and
+            <br> the more you hover the house on the left it makes the red darker.
+            <br> similrly on the right.
+
+        </p>
+    </div>
+    <div id="rect">
+
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        // Wrap your JavaScript code in a DOMContentLoaded event listener
+        document.addEventListener("DOMContentLoaded", function () {
+            var rect = document.querySelector("#rect");
+            rect.addEventListener("mousemove", function (details) {
+                // Get the location of the rectangle
+                var rectlocation = rect.getBoundingClientRect();
+                var insiderect = details.clientX - rectlocation.left;
+                if (insiderect < rectlocation.width / 2) {
+                    // Change the red color
+                    var red = gsap.utils.mapRange(0, rectlocation.width / 2, 255, 0, insiderect);
+                    gsap.to(rect, { backgroundColor: `rgb(${red},0,0)`, ease: Power4.easeOut });
+                } else {
+                    // Change to blue color
+                    var green = gsap.utils.mapRange(rectlocation.width / 2, rectlocation.width, 0, 255, insiderect);
+                    gsap.to(rect, { backgroundColor: `rgb(0,${green},0)`, ease: Power4.easeOut });
+                }
+            });
+        },
+        rect.addEventListener("mouseleave",function(){
+            gsap.to(rect,{backgroundColor:"white",})
+        })
+        );
+    </script>
+</body>
+</html>

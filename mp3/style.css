@@ -1,0 +1,23 @@
+
+
+#box{
+    height:500px;
+    width: 600px;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(200, 221, 160);
+}
+.imagediv {
+    width: 100px; /* Change this to your desired width */
+    height: 100px; /* Change this to your desired height */
+    
+    overflow: hidden;
+}
+.imagediv img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translateY(100%);
+}

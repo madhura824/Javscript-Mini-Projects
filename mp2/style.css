@@ -1,0 +1,10 @@
+#rect{
+    height: 100px;
+    width: 200px;
+    border: solid 2px black;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: blueviolet;
+}
